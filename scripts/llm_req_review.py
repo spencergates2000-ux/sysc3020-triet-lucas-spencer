@@ -42,10 +42,32 @@ Specification (SRS) of a Pac-Man game's core logic.
 
 Review the requirements below for defects. A defect is a violation of one of
 the ISO/IEC/IEEE 29148 quality characteristics:
-- TODO: list the characteristics and define, in one line each, what a
-        violation looks like (do not just name them).
-- TODO: tell the model what NOT to flag (style preferences, formatting, ...).
-- TODO: ask for cross-requirement checks (contradictions, duplicates).
+
+- Unambiguous: flag a requirement if it can reasonably be interpreted in more than
+  one way, or if it uses vague or subjective terms such as "fast", "easy",
+  "appropriate", "user-friendly", or "should".
+- Complete: flag a requirement if necessary conditions, actors, triggers, inputs,
+  outputs, or expected system responses are missing.
+- Consistent: flag a requirement if it conflicts with or contradicts another
+  requirement.
+- Verifiable: flag a requirement if there is no concrete test or observation that
+  could determine whether the requirement has been satisfied.
+- Singular: flag a requirement if it combines multiple independent behaviours or
+  obligations that should be separated into individual requirements.
+- Feasible: flag a requirement if it describes behaviour that is outside the
+  stated system scope or cannot reasonably be implemented by the JPacman core logic.
+- Traceable: flag a requirement if it does not identify a concrete implementation
+  source such as a class and method that supports the behaviour.
+
+Do not flag purely stylistic preferences, punctuation, capitalization, formatting,
+or wording differences that do not affect the meaning, testability, or correctness
+of the requirement.
+
+Also compare requirements against each other and flag:
+- direct contradictions,
+- logically incompatible behaviours,
+- duplicate requirements that specify the same behaviour,
+- overlapping requirements that could create inconsistent interpretations.
 
 For each defect found, output exactly one line:
   <REQ-ID> | <characteristic violated> | <one-sentence explanation> | <suggested fix>
@@ -82,14 +104,14 @@ def review(path: str) -> None:
     # -----------------------------------------------------------------------
     # 2. THE MODEL CALL — complete it (LangChain + local Ollama).
     # -----------------------------------------------------------------------
-    # TODO: something like
-    #   from langchain_ollama import ChatOllama
-    #   model = ChatOllama(model="llama3.2", temperature=0)  # temp 0 = reproducible
-    #   print(model.invoke(prompt).content)
-    raise NotImplementedError(
-        "Complete the PROMPT above and the model call here, then re-run. "
-        "See the module docstring for what is graded."
+    from langchain_ollama import ChatOllama
+
+    model = ChatOllama(
+        model="llama3.2",
+        temperature=0
     )
+
+    print(model.invoke(prompt).content)
 
 if __name__ == "__main__":
     if len(sys.argv) != 2:
