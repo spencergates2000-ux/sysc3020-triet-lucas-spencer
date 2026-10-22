@@ -75,7 +75,7 @@ def load_requirements(path: str) -> str:
         sys.exit("No requirement lines (e.g., SJC-001) found in " + path)
     return "\n".join(reqs)
 
-def review(path: str) -> None:
+def review(path: str) -> None: 
     requirements = load_requirements(path)
     prompt = PROMPT.format(requirements=requirements)
 
