@@ -72,7 +72,7 @@ Also compare requirements against each other and flag:
 For each defect found, output exactly one line:
   <REQ-ID> | <characteristic violated> | <one-sentence explanation> | <suggested fix>
 
-If a requirement is clean, do not mention it.
+If a requirement is clean, do not mention it. 
 
 Requirements:
 {requirements}
